@@ -1,5 +1,5 @@
 import axios from 'axios/index';
-import {PhotoType} from '../types/PhotoType';
+import {PhotoType} from '../types/UnsplashPhotoDTO';
 
 /**
  * Класс для взаимодействия с API, предоставляющее коллекцию изображений.

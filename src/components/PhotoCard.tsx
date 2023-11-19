@@ -1,9 +1,11 @@
-import React, { memo } from "react";
+import React, {memo} from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 
 // Тип объекта пропсов для PhotoCard.
 type PhotoCardProps = {
+  id: string;
   uri: string;
+  onPress: (id: string) => void;
 };
 
 /**
@@ -11,14 +13,14 @@ type PhotoCardProps = {
  * @param uri Ссылка на изображение.
  * @constructor
  */
-export const PhotoCard = memo(({uri}: PhotoCardProps) => {
-  // Обработчик для нажатия на изображение.
-  const pressHandler = () => {
-    console.log('pressed');
+export const PhotoCard = memo(({id, uri, onPress}: PhotoCardProps) => {
+  const onPressImage = () => {
+    onPress(id);
   };
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={pressHandler}>
+      <TouchableOpacity onPress={onPressImage}>
         <Image
           style={styles.image}
           source={{

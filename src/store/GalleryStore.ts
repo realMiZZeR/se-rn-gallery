@@ -1,6 +1,6 @@
 import {makeObservable, observable, action, runInAction} from 'mobx';
 import GalleryService from '../services/GalleryService';
-import {PhotoType} from '../types/PhotoType';
+import {UnsplashPhotoDTO} from '../types/UnsplashPhotoDTO';
 
 /**
  * Класс, хранящий изображения и методы для работы с их данными.
@@ -8,7 +8,7 @@ import {PhotoType} from '../types/PhotoType';
 export default class GalleryStore {
   private _galleryService: GalleryService;
   public currentPage: number;
-  public photos: PhotoType[];
+  public photos: Array<UnsplashPhotoDTO>;
   public isLoading: boolean;
 
   constructor(page = 1) {
@@ -33,6 +33,10 @@ export default class GalleryStore {
 
     this.currentPage++;
     this.loadData();
+  };
+
+  getPhoto = (id: string) => {
+    return this.photos.find(photo => photo.id === id);
   };
 
   // Асинхронное извлечение данных изображений.
