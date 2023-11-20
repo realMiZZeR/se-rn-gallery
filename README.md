@@ -1,9 +1,11 @@
-# Настройка окружения
-При разработке приложения использовалось IDE от JetBrains `WebStorm`.
-Для работы с react-native быз загружен пакет [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Окружение
+При разработке приложения использовалось IDE от JetBrains `WebStorm`. <br/>
+Для работы с react-native был загружен пакет [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 Также был настроен эмулятор на Android Studio, где были загружены следующие SDK:
 - платформа Android API 34;
 - инструменты Android SDK Build-Tools 34, Android Emulator и Android SDK Platform-Tools.
+  
+[Более подробно о настройке окружения написано на официальной документации во вкладке React Native CLI Quickstart](https://reactnative.dev/docs/environment-setup).
 
 > сразу хочется сказать, что на iOS у меня, к сожалению, нет возможности
 > протестировать работоспособность в связи с отсутствием устройства с операционной системой iOS или macOS.
