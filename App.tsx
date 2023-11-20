@@ -1,8 +1,9 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {RootStoreContext} from './src/providers/RootStoreContext';
 import RootStore from './src/store/RootStore';
 import {Gallery} from './src/components/Gallery';
+import {Toolbar} from './src/components/Toolbar';
 
 /**
  * Точка входа в приложение.
@@ -11,9 +12,10 @@ import {Gallery} from './src/components/Gallery';
 export const App = () => {
   return (
     <RootStoreContext.Provider value={new RootStore()}>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Gallery />
-      </View>
+        {/*<Toolbar />*/}
+      </SafeAreaView>
     </RootStoreContext.Provider>
   );
 };

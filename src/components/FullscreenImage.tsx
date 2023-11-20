@@ -1,20 +1,12 @@
 import React, {useEffect} from 'react';
-import {
-  BackHandler,
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import {UnsplashPhotoDTO} from '../types/UnsplashPhotoDTO';
+import {BackHandler, Image, StyleSheet, View} from 'react-native';
 
 type FullscreenImageProps = {
-  data: UnsplashPhotoDTO;
+  uri: string;
   onClose: () => void;
 };
 
-export const FullscreenImage = ({data, onClose}: FullscreenImageProps) => {
+export const FullscreenImage = ({uri, onClose}: FullscreenImageProps) => {
   useEffect(() => {
     const backAction = () => {
       onClose();
@@ -33,7 +25,7 @@ export const FullscreenImage = ({data, onClose}: FullscreenImageProps) => {
       <Image
         style={styles.image}
         source={{
-          uri: data.urls?.regular,
+          uri
         }}
       />
     </View>

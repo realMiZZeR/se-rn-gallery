@@ -1,5 +1,5 @@
-import axios from 'axios/index';
-import {PhotoType} from '../types/UnsplashPhotoDTO';
+import axios from 'axios';
+import {UnsplashPhotoDTO} from '../types/UnsplashPhotoDTO';
 
 /**
  * Класс для взаимодействия с API, предоставляющее коллекцию изображений.
@@ -15,7 +15,7 @@ class GalleryService {
    * @param count Количество элементов, которые будут храниться на данной странице.
    */
   getPhotos = async (page: number, count: number) => {
-    const response = await axios.get<PhotoType[]>(
+    const response = await axios.get<UnsplashPhotoDTO[]>(
       `${this.apiUrl}/photos?client_id=${this.token}&page=${page}&per_page=${count}`,
     );
     return response.data;

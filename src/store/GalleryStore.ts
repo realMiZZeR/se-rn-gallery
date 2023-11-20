@@ -1,4 +1,4 @@
-import {makeObservable, observable, action, runInAction} from 'mobx';
+import {makeObservable, observable, runInAction} from 'mobx';
 import GalleryService from '../services/GalleryService';
 import {UnsplashPhotoDTO} from '../types/UnsplashPhotoDTO';
 
@@ -25,10 +25,20 @@ export default class GalleryStore {
     });
   }
 
+  /**
+   * Возвращает данные об изображении.
+   * @param id ID изображения.
+   */
   getPhoto = (id: string) => {
     return this.photos.find(photo => photo.id === id);
   };
 
+  /**
+   * Заполняет массив данными, запрашивая их с сервера.
+   * @param pagesCount Количество запрашиваемых страниц.
+   * @param itemsCount Количество элементов на странице.
+   * @param callback Функция, которая вызовется после завершения запроса.
+   */
   fill = async (pagesCount: number, itemsCount = 30, callback = () => {}) => {
     try {
       // todo: add queue
@@ -45,12 +55,17 @@ export default class GalleryStore {
       }
 
       this.isLoading = false;
-      callback();
     } catch (error) {
+      this.isLoading = false;
       console.error(error);
+    } finally {
+      callback();
     }
   };
 
+  /**
+   * Устанавилвает указатель в начало, а также очищает массив с изображениями.
+   */
   clear = () => {
     this.photos.length = 0;
     this.currentPage = this._startPage;
