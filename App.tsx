@@ -3,7 +3,7 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 import {RootStoreContext} from './src/providers/RootStoreContext';
 import RootStore from './src/store/RootStore';
 import {Gallery} from './src/components/Gallery';
-import {Toolbar} from './src/components/Toolbar';
+import {NetworkProvider} from './src/providers/NetworkContext';
 
 /**
  * Точка входа в приложение.
@@ -13,8 +13,10 @@ export const App = () => {
   return (
     <RootStoreContext.Provider value={new RootStore()}>
       <SafeAreaView style={styles.container}>
-        <Gallery />
-        {/*<Toolbar />*/}
+        <NetworkProvider>
+          <Gallery />
+          {/*<Toolbar />*/}
+        </NetworkProvider>
       </SafeAreaView>
     </RootStoreContext.Provider>
   );
