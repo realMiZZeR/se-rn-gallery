@@ -6,7 +6,7 @@ import React, {
   useState,
 } from 'react';
 import {Image, Text, View} from 'react-native';
-import {useNetInfo} from '@react-native-community/netinfo';
+import NetInfo, { NetInfoState } from "@react-native-community/netinfo";
 
 // Пропсы для компонента.
 type NetworkProviderProps = {
@@ -37,23 +37,19 @@ export const useNetwork = () => {
  * @constructor
  */
 export const NetworkProvider = ({children}: NetworkProviderProps) => {
-  const netInfo = useNetInfo();
   const [hasConnection, setHasConnection] = useState(false);
 
   // Метод для проверки подключения к Интернету.
-  const checkConnection = () => {
-    if (netInfo === null) {
-      return;
-    }
-    let isConnected = netInfo.isConnected ?? false;
-    let isInternetReachable = netInfo.isInternetReachable ?? false;
+  const checkConnection = (netInfo: NetInfoState) => {
+    let isConnected = netInfo?.isConnected ?? false;
+    let isInternetReachable = netInfo?.isInternetReachable ?? false;
     setHasConnection(isConnected && isInternetReachable);
   };
 
   // Запускает механизм проверки соединения с интернетом.
   useEffect(() => {
-    const checkConnectionInterval = setInterval(checkConnection, 5000);
-    return () => clearInterval(checkConnectionInterval);
+    const unsubscribe = NetInfo.addEventListener(checkConnection);
+    return () => unsubscribe();
   }, []);
 
   // При отсутствии подключения, будет выводиться соответствующий экран,
@@ -73,6 +69,8 @@ export const NetworkProvider = ({children}: NetworkProviderProps) => {
   }
 
   return (
-    <NetworkContext.Provider value={null}>{children}</NetworkContext.Provider>
+    <NetworkContext.Provider value={{hasConnection}}>
+      {children}
+    </NetworkContext.Provider>
   );
 };
