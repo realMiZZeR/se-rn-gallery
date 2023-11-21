@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {observer} from 'mobx-react-lite';
 import {GalleryImage} from './GalleryImage';
-import {useStores} from '../providers/RootStoreContext';
+import {useStores} from '../providers/RootStoreProvider';
 import {Loader} from './Loader';
 import {FullscreenImage} from './FullscreenImage';
 import {UnsplashPhotoDTO} from '../types/UnsplashPhotoDTO';

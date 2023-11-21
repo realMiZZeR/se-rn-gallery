@@ -1,9 +1,9 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import {RootStoreContext} from './src/providers/RootStoreContext';
+import {RootStoreContext} from './src/providers/RootStoreProvider';
 import RootStore from './src/store/RootStore';
 import {Gallery} from './src/components/Gallery';
-import {NetworkProvider} from './src/providers/NetworkContext';
+import {NetworkProvider} from './src/providers/NetworkProvider';
 
 /**
  * Точка входа в приложение.

@@ -6,11 +6,11 @@ import React, {
   useState,
 } from 'react';
 import {Image, Text, View} from 'react-native';
-import NetInfo, { NetInfoState } from "@react-native-community/netinfo";
+import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
 
 // Пропсы для компонента.
 type NetworkProviderProps = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 // Хранящиеся значения в контексте.
