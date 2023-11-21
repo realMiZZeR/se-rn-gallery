@@ -48,14 +48,19 @@ yarn ios
 После выполнения вышеперечисленных действий, на эмуляторе откроется приложение с галереей изображений, взятых с API сайта [Unsplash Developers](https://unsplash.com/developers).
 
 # Скриншоты приложения
-> Главный экран
-![Главный экран]('./readme_images/main.png')
+### Главный экран
+<img width="300" src="https://github.com/realMiZZeR/se-rn-gallery/assets/87935999/cf5a6447-ba00-4dce-a286-c16fcea92aad" />
+<br />
 
-> Полное изображение
-![Полное изображение]('./readme_images/fullscreen-image.png')
+### Полное изображение
+<img width="300" src="https://github.com/realMiZZeR/se-rn-gallery/assets/87935999/40655a73-9018-463a-9754-477651a4de94)" />
+<br />
 
-> Без интернета
-![Без интернета]('./readme_images/no-connection.png')
+### Без интернета
+<img width="300" src="https://github.com/realMiZZeR/se-rn-gallery/assets/87935999/f94e2558-5898-4241-bcda-8eb325c59922" />
+<br />
 
-> Загрузка изображений
-![Загрузка изображений]('./readme_images/gallery-loading.png')
+### Загрузка изображений
+<img width="300" src="https://github.com/realMiZZeR/se-rn-gallery/assets/87935999/a54e977e-3827-4f26-b140-4735ce78e4a6" />
+<br />
+
