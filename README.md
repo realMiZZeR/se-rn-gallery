@@ -46,3 +46,16 @@ yarn ios
 
 ## Шаг 3
 После выполнения вышеперечисленных действий, на эмуляторе откроется приложение с галереей изображений, взятых с API сайта [Unsplash Developers](https://unsplash.com/developers).
+
+# Скриншоты приложения
+> Главный экран
+![Главный экран]('./readme_images/main.png')
+
+> Полное изображение
+![Полное изображение]('./readme_images/fullscreen-image.png')
+
+> Без интернета
+![Без интернета]('./readme_images/no-connection.png')
+
+> Загрузка изображений
+![Загрузка изображений]('./readme_images/gallery-loading.png')
